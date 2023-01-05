@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse
 
 # Create your views here.
+
+
 def index(request):
-    return HttpResponse("Instagram")
+    return render(request, "base/index.html")
 

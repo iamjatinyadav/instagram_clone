@@ -1,0 +1,48 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container mt-3 p-2">
+        <div class="row">
+            <div class="col-6">
+                <div class="container storys mb-3 bg-white border rounded-2 ">
+{#                    <h1 class="h1">Instagram</h1>#}
+                    <img class="story-post" src="{% static 'base/images/profile.jpg' %}">
+                    <img class="story-post" src="{% static 'base/images/profile.jpg' %}">
+                    <img class="story-post" src="{% static 'base/images/profile.jpg' %}">
+                    <img class="story-post" src="{% static 'base/images/profile.jpg' %}">
+                    <img class="story-post" src="{% static 'base/images/profile.jpg' %}">
+                    <img class="story-post" src="{% static 'base/images/profile.jpg' %}">
+                    <img class="story-post" src="{% static 'base/images/profile.jpg' %}">
+                    <img class="story-post" src="{% static 'base/images/profile.jpg' %}">
+                    <img class="story-post" src="{% static 'base/images/profile.jpg' %}">
+
+                </div>
+                <div class="container-fluid mt-2 border rounded ">
+                    <div class="row align-items-center" >
+                        <div class="col-1 align-items-center">
+                            <img class="profile-circle" src="{% static 'base/images/profile.jpg' %}">
+{#                            <p style="background-color: antiquewhite; margin-top:10px; padding: 0;">iam</p>#}
+                        </div>
+                        <div class="col-8" >
+                              <p style="margin-top:15px; margin-left:12px; padding: 0; font-weight: bold;">iamjatin_yadav</p>
+
+                        </div>
+                        <div class="col-3 align-self-end">
+                            <p style="margin-top:12px; padding: 0; margin-left: 70px;">...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid" style="padding: 0; margin: 0;">
+                    <img class="post-image" src="{% static 'base/images/profile.jpg' %}">
+                </div>
+                <div class="container-fluid">
+
+                </div>
+            </div>
+            <div class="col-5">
+                <h1 class="h1">Instagram</h1>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
