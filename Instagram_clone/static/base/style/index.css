@@ -31,7 +31,7 @@
 }
 .storys {
             margin: 0;
-            padding: 0;
+            padding: 0 0 0 2px;
             overflow: auto;
             white-space: nowrap;
 }
