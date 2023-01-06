@@ -40,3 +40,49 @@
             border: none;
             background-color: #FAFAFA;;
 }
+.comment:focus {
+    outline: none;
+}
+.comment:hover {
+    border: none;
+}
+.comment:active {
+    border: none;
+}
+
+.profile-image {
+    margin: 10px 2px 10px 3px;
+    padding: 2px;
+    vertical-align: middle;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.my-p {
+    margin: 0;
+    padding: 0;
+}
+
+.my-cf {
+    margin: 0;
+    padding: 0;
+}
+
+.my-d {
+    margin: 0;
+    padding: 0;
+}
+
+.suggestions-image {
+    margin: 0px 0px 0px 3px;
+    padding: 2px;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}

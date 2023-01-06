@@ -3,3 +3,12 @@
     height: 100vh;
     width: 20%;
 }
+.sidebar-menu-div {
+    /*border: 2px solid red;*/
+
+}
+
+.sidebar-menu-div:hover{
+    background-color: #f1efef;
+    border-radius: 50px;
+}
