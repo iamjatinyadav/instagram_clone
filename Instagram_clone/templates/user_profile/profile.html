@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static "user_profile/style/profile.css" %}">
+{% endblock %}
+{% block content %}
+<div class="container-fluid mt-4" style="background-color: #e58f19;">
+    <div class="container-fluid " style="background-color: green;">
+        <div class="row">
+            <div class="d-flex align-items-center" style="background-color: aqua; display: inline-block;">
+                <img class="profile-pic" src="{% static 'base/images/profile.jpg' %}">
+            </div>
+            <div class="d-flex"  style="background-color: blue;">
+                <p style="font-weight: bold; margin: 0; padding: 0;">iamjatin_yadav</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

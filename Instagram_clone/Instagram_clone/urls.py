@@ -12,6 +12,7 @@ admin.site.site_header = "Instagram_clone Administration"
 urlpatterns = i18n_patterns(
 	path('admin/', admin.site.urls),
 	path('', include('apps.base.urls')),
+	path('test/', include('apps.user_profile.urls')),
     prefix_default_language = False
 )
 
