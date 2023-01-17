@@ -4,4 +4,15 @@ from django.shortcuts import render
 
 
 def profile(request):
-    return render(request, "user_profile/profile.html")
+    context = {"value": "profile"}
+    return render(request, "user_profile/profile.html", context)
+
+
+def user_saved(request):
+    context = {"value": "user_saved"}
+    return render(request, "user_profile/profile.html", context)
+
+
+def user_tagged(request):
+    context = {"value": "user_tagged"}
+    return render(request, "user_profile/profile.html", context)

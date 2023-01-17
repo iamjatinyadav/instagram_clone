@@ -2,16 +2,17 @@
 {% load static %}
 {% block scripts %}
     <link rel="stylesheet" href="{% static "user_profile/style/profile.css" %}">
+    <link rel="stylesheet" href="{% static "user_profile/style/usersaved.css" %}">
 {% endblock %}
 {% block content %}
-<div class="container-fluid mt-4" style="background-color: #e58f19;">
+<div class="container-fluid mt-4" >
     <!-- header section -->
-    <div class="container-fluid profile-header" style="background-color: green;">
+    <div class="container-fluid profile-header">
         <div class="d-flex">
-            <div class="d-flex align-items-center" style="background-color: aqua; display: inline-block;">
+            <div class="d-flex align-items-center" style=" display: inline-block;">
                 <img class="profile-pic" src="{% static 'base/images/profile.jpg' %}">
             </div>
-            <div class="d-flex" style="background-color: blue; margin: 0 0 0 50px">
+            <div class="d-flex" style="margin: 0 0 0 50px">
                 <div class="d-flex flex-column">
                     <!--profile username with edit setting and ad tool button -->
                     <div class="d-flex flex-row align-items-center mb-2">
@@ -56,7 +57,7 @@
         </div>
     </div>
     <!-- memories show and add button container -->
-    <div class="container-fluid my-d memories" style="background-color: aqua">
+    <div class="container-fluid my-d memories" >
         <div class="col-1 my-d mx-2 " style="display: inline-block;" >
             <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
             <p style="text-align: center; font-size: 15px" >Dehradun</p>
@@ -110,7 +111,7 @@
         <hr>
     </div>
     <!-- button post saved and tagged -->
-    <div class="container-fluid my-cf" style="background-color: #e7571a;">
+    <div class="container-fluid my-cf mb-2" >
         <div class="d-flex justify-content-center mx-4">
             <div class="d-flex flex-row align-items-center mx-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-postcard m-2" viewBox="0 0 16 16">
@@ -134,5 +135,15 @@
         </div>
     </div>
     <!-- user posts -->
+    <div class="container-fluid" >
+        {% if value == "user_saved" %}
+            {% include "user_profile/usersaved.html" %}
+        {% elif value == "user_tagged"%}
+            {% include "user_profile/usertagged.html" %}
+        {% else %}
+            {% include "user_profile/userpost.html" %}
+        {% endif %}
+
+    </div>
 </div>
 {% endblock %}
