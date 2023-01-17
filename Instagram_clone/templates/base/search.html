@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'base/style/search.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container mt-3 p-2" style="background-color: #e58f19">
+        <div class="d-flex p-2 ">
+            <p class="h1">Search</p>
+        </div>
+        <hr>
+        <!-- serach form -->
+        <div class="container">
+            <input class="search" type="text" placeholder="Search">
+            <button class="search-button">Search</button>
+        </div>
+        <hr>
+        <!-- show search result -->
+        <div class="container">
+            <div class="d-flex p-2 align-items-center">
+                  <div class="d-flex">
+                      <img class="search-post-image" src="{% static 'base/images/profile.jpg' %}">
+                  </div>
+                  <div class="flex-grow-1 mx-3">
+                      <p class="my-p" style="font-weight: bold;">iamjatin_yadav</p>
+                      <p class="my-p" style="color: gray; font-size: 15px;">Jatin Yadav</p>
+                  </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -6,3 +6,7 @@ from django.shortcuts import render, HttpResponse
 def index(request):
     return render(request, "base/index.html")
 
+
+def search(request):
+    return render(request, "base/search.html")
+
