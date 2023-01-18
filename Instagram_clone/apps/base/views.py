@@ -10,3 +10,6 @@ def index(request):
 def search(request):
     return render(request, "base/search.html")
 
+
+def explore(request):
+    return render(request, "base/explore.html")
