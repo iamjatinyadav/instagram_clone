@@ -13,3 +13,11 @@ def search(request):
 
 def explore(request):
     return render(request, "base/explore.html")
+
+
+def login(request):
+    return render(request, "base/login.html")
+
+
+def signup(request):
+    return render(request, "base/signup.html")
