@@ -1,0 +1,21 @@
+.req-text{
+    margin-left: 15px;
+    color: gray;
+    font-size: 12px;
+}
+
+.friend-req-heading {
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.profile-friend-request-image {
+    margin:2px 2px 2px 3px;
+    padding: 2px;
+    vertical-align: middle;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}

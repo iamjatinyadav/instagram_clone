@@ -1,0 +1,35 @@
+.friend-req-c {
+    background-color: white;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.25);
+}
+
+
+.friend-req-c:hover{
+    background-color: #f5f4f4;
+    border-radius: 50px;
+}
+
+.req-text{
+    margin-left: 15px;
+    color: gray;
+    font-size: 12px;
+}
+
+.friend-req-heading {
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.latest-profile-friend-request-image {
+    margin:2px 2px 2px 3px;
+    padding: 2px;
+    vertical-align: middle;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}

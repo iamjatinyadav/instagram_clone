@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'base/style/notifications.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container mt-3 friend-req-c my-c" onclick="location.href='{% url 'friendrequests' %}';">
+        <div class="d-flex align-items-center my-d mb-3">
+            <div class="my-d">
+                <img class="latest-profile-friend-request-image" src="{% static 'base/images/profile.jpg' %}">
+            </div>
+            <div class="flex-grow-1 mx-2">
+                <p class="my-p friend-req-heading">friend Requests</p>
+                <p class="my-p req-text" >2 request pending</p>
+            </div>
+            <div class="my-d">
+                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                </svg></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

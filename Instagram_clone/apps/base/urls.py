@@ -4,6 +4,7 @@ urlpatterns = [
     path("", index, name="home"),
     path("search/", search, name="search"),
     path("explore/", explore, name="explore"),
+    path("notifications/", notifications, name="notifications"),
     path("login/", login, name="login"),
     path("signup/", signup, name="signup"),
 ]

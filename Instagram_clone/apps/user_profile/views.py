@@ -16,3 +16,7 @@ def user_saved(request):
 def user_tagged(request):
     context = {"value": "user_tagged"}
     return render(request, "user_profile/profile.html", context)
+
+
+def friendrequest(request):
+    return render(request, "user_profile/friendrequests.html")

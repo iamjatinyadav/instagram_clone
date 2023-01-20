@@ -15,6 +15,10 @@ def explore(request):
     return render(request, "base/explore.html")
 
 
+def notifications(request):
+    return render(request, "base/notifications.html")
+
+
 def login(request):
     return render(request, "base/login.html")
 
