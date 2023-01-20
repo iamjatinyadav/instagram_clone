@@ -3,9 +3,18 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 
 from .models import User
+from apps.user_profile.models import UserPersonalInfo
 
 
+class UserPersonalInfoAdmin(admin.TabularInline):
+    model = UserPersonalInfo
+
+
+@admin.register(User)
 class CustomUserAdmin(UserAdmin):
+    inlines = [
+        UserPersonalInfoAdmin
+    ]
     list_display = ('email', 'first_name', 'last_name', 'is_staff')
     ordering = ('date_joined',)
 
@@ -25,4 +34,3 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('email', 'first_name', 'last_name', 'email')
 
 
-admin.site.register(User, CustomUserAdmin)

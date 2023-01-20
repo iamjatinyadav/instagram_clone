@@ -133,11 +133,11 @@
                                 <img class="profile-image" src="{% static 'base/images/profile.jpg' %}">
                             </div>
                             <div class="p-2 flex-grow-1">
-                                <p class="my-p" style="font-weight: bold;">iamjatin_yadav</p>
-                                <p class="my-p" style="color: gray; font-size: 15px;">Jatin Yadav</p>
+                                <p class="my-p" style="font-weight: bold;">{{ request.user.userpersonal.uniquename }}</p>
+                                <p class="my-p" style="color: gray; font-size: 15px;">{{ request.user.get_full_name }}</p>
                             </div>
                             <div class="p-2 my-d">
-                                <a href="#" style="color: blue;text-decoration: none;">Logout</a>
+                                <a href="{% url 'logout' %}" style="color: blue;text-decoration: none;">Logout</a>
                             </div>
                         </div>
                     </div>
