@@ -22,21 +22,22 @@
                 <p class="align-items-center">Sign up to see photos and videos from your friends.</p>
                 <button type="submit" class="btn btn-primary " style="width: 100%; background-color: #1c88ce;">Log in with Facebook</button>
                 <hr>
-                <form>
+                <form method="post" action="">
+                    {% csrf_token %}
                   <div class="mb-3">
                     <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
                   </div>
                   <div class="mb-3">
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                    <input type="text" class="form-control" id="uniquename" name="uniquename" placeholder="Username">
                   </div>
                   <div class="mb-3">
-                    <input type="text" class="form-control" id="username" name="phone" placeholder="Phone no">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone no">
                   </div>
                   <div class="mb-3">
-                    <input type="text" class="form-control" id="fname" name="Fname" placeholder="Firstname">
+                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Firstname">
                   </div>
                   <div class="mb-3">
-                    <input type="text" class="form-control" id="lname" name="Lname" placeholder="Lastname">
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Lastname">
                   </div>
                   <div class="mb-3">
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">

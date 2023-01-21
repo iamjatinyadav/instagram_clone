@@ -7,7 +7,7 @@ urlpatterns = [
     path("search/", search, name="search"),
     path("explore/", explore, name="explore"),
     path("notifications/", notifications, name="notifications"),
-    path("login/", HandleLogin.as_view(), name="login"),
+    path("login/", handle_login, name="login"),
     path("logout/", HandleLogout.as_view(), name="logout"),
-    path("signup/", signup, name="signup"),
+    path("signup/", HandleRegister.as_view(), name="signup"),
 ]

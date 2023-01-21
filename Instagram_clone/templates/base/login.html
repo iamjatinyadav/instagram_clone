@@ -24,12 +24,15 @@
                     {% for error in form.email.errors %}
                     <p>{{ error }}<p>
                     {% endfor %}
+{#                    {{ form.as_div }}#}
+
                   <div class="mb-3">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email, username, or phone no">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email, username, or phone no">
                   </div>
                   <div class="mb-3">
                     <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                   </div>
+{#                    <input type="submit" value="Submit">#}
                   <button type="submit" class="btn btn-primary " style="width: 100%; background-color: #1c88ce;">Login</button>
                 </form>
               </div>
