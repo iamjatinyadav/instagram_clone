@@ -1,10 +1,12 @@
 from django.shortcuts import render
-
+from user.models import *
 # Create your views here.
 
 
-def profile(request):
-    context = {"value": "profile"}
+def profile(request, user):
+    # user = User.objects.filter(userpersonal__uniquename=user)
+    print(user)
+    context = {"value": "profile", "username": user}
     return render(request, "user_profile/profile.html", context)
 
 
