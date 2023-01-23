@@ -1,14 +1,11 @@
 from django.contrib import admin
-from user.admin import CustomUserAdmin
-# Register your models here.
-from .models import UserPersonalInfo
-from django.utils.translation import gettext_lazy as _
+from .models import *
 
 
-class UserPersonalInfoAdmin(CustomUserAdmin):
-    fieldsets = (
-        (_('More Personal info'), {'fields': ('username', 'phone')}),
-    )
+@admin.register(FriendsRequest)
+class FriendRequestAdmin(admin.ModelAdmin):
+    list_display = ['sender','receiver','action']
+
 
 
 

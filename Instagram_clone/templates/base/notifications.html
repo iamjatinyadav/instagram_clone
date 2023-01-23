@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{% static 'base/style/notifications.css' %}">
 {% endblock %}
 {% block content %}
-    <div class="container mt-3 friend-req-c my-c" onclick="location.href='{% url 'friendrequests' %}';">
+    <div class="container mt-3 friend-req-c my-c" onclick="location.href='{% url 'friend-requests' request.user.userpersonal.uniquename %}';">
         <div class="d-flex align-items-center my-d mb-3">
             <div class="my-d">
                 <img class="latest-profile-friend-request-image" src="{% static 'base/images/profile.jpg' %}">

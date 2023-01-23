@@ -5,21 +5,28 @@ from django.urls import reverse_lazy
 from user.models import *
 from apps.user_profile.models import *
 from .forms import *
+from django.contrib.auth.decorators import *
 # Create your views here.
 
 
+@login_required()
 def index(request):
-    return render(request, "base/index.html")
+    suggest_user = User.objects.all().exclude(email=request.user.email)
+    context = {'suggest_users': suggest_user}
+    return render(request, "base/index.html", context)
 
 
+@login_required()
 def search(request):
     return render(request, "base/search.html")
 
 
+@login_required()
 def explore(request):
     return render(request, "base/explore.html")
 
 
+@login_required()
 def notifications(request):
     return render(request, "base/notifications.html")
 

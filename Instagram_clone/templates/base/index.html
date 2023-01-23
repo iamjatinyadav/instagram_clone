@@ -153,66 +153,68 @@
                     </div>
                     <div class="container-fluid my-cf">
                         <!--Suggestions div-->
+                        {% for i in suggest_users %}
                         <div class="d-flex align-items-center my-d">
                             <div class="p-2 my-d">
                                 <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %}">
                             </div>
                             <div class="p-2 flex-grow-1">
-                                <p class="my-p" style="font-weight: bold; font-size: 12px;">iamjatin_yadav</p>
+                                <p class="my-p" style="font-weight: bold; font-size: 12px;">{{ i.userpersonal.uniquename }}</p>
                                 <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>
                             </div>
                             <div class="p-2 my-d">
                                 <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center my-d ">
-                            <div class="p-2 my-d" >
-                                <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %} ">
-                            </div>
-                            <div class="p-2 flex-grow-1">
-                                <p class="my-p" style="font-weight: bold; font-size: 12px;">iamjatin_yadav</p>
-                                <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>
-                            </div>
-                            <div class="p-2 my-d">
-                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center my-d ">
-                            <div class="p-2 my-d" >
-                                <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %} ">
-                            </div>
-                            <div class="p-2 flex-grow-1">
-                                <p class="my-p" style="font-weight: bold; font-size: 12px;">iamjatin_yadav</p>
-                                <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>
-                            </div>
-                            <div class="p-2 my-d">
-                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center my-d ">
-                            <div class="p-2 my-d" >
-                                <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %} ">
-                            </div>
-                            <div class="p-2 flex-grow-1">
-                                <p class="my-p" style="font-weight: bold; font-size: 12px;">iamjatin_yadav</p>
-                                <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>
-                            </div>
-                            <div class="p-2 my-d">
-                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center my-d ">
-                            <div class="p-2 my-d" >
-                                <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %} ">
-                            </div>
-                            <div class="p-2 flex-grow-1">
-                                <p class="my-p" style="font-weight: bold; font-size: 12px;">iamjatin_yadav</p>
-                                <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>
-                            </div>
-                            <div class="p-2 my-d">
-                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>
-                            </div>
-                        </div>
+                        {% endfor %}
+{#                        <div class="d-flex align-items-center my-d ">#}
+{#                            <div class="p-2 my-d" >#}
+{#                                <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %} ">#}
+{#                            </div>#}
+{#                            <div class="p-2 flex-grow-1">#}
+{#                                <p class="my-p" style="font-weight: bold; font-size: 12px;">iamjatin_yadav</p>#}
+{#                                <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>#}
+{#                            </div>#}
+{#                            <div class="p-2 my-d">#}
+{#                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="d-flex align-items-center my-d ">#}
+{#                            <div class="p-2 my-d" >#}
+{#                                <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %} ">#}
+{#                            </div>#}
+{#                            <div class="p-2 flex-grow-1">#}
+{#                                <p class="my-p" style="font-weight: bold; font-size: 12px;">iamjatin_yadav</p>#}
+{#                                <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>#}
+{#                            </div>#}
+{#                            <div class="p-2 my-d">#}
+{#                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="d-flex align-items-center my-d ">#}
+{#                            <div class="p-2 my-d" >#}
+{#                                <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %} ">#}
+{#                            </div>#}
+{#                            <div class="p-2 flex-grow-1">#}
+{#                                <p class="my-p" style="font-weight: bold; font-size: 12px;">iamjatin_yadav</p>#}
+{#                                <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>#}
+{#                            </div>#}
+{#                            <div class="p-2 my-d">#}
+{#                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="d-flex align-items-center my-d ">#}
+{#                            <div class="p-2 my-d" >#}
+{#                                <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %} ">#}
+{#                            </div>#}
+{#                            <div class="p-2 flex-grow-1">#}
+{#                                <p class="my-p" style="font-weight: bold; font-size: 12px;">iamjatin_yadav</p>#}
+{#                                <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>#}
+{#                            </div>#}
+{#                            <div class="p-2 my-d">#}
+{#                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>#}
+{#                            </div>#}
+{#                        </div>#}
                     </div>
                 </div>
             </div>
