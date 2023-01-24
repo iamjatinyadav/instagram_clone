@@ -13,9 +13,10 @@
             <div class="flex-grow-1 mx-2">
                 <p class="my-p friend-req-heading">{{ i.sender.userpersonal.uniquename }}</p>
                 <p class="my-p req-text" >{{ i.sender.get_full_name }}</p>
+{#                <p class="my-p req-text" >{{ i.pk }}</p>#}
             </div>
             <div class="my-d">
-                <button type="button" class="btn btn-primary">Accept</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='{% url 'accept-requests' i.pk %}'">Accept</button>
                 <button type="button" class="btn btn-secondary mx-2">Delete</button>
             </div>
         </div>
