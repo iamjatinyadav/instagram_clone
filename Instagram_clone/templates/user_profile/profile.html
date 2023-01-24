@@ -38,10 +38,10 @@
                             <p class="my-p" style="font-size: 13px;"><span style="font-size: 15px; font-weight: bold;">40</span> posts</p>
                         </div>
                         <div>
-                            <p class="my-p" style="font-size: 13px;"><span style="font-size: 15px; font-weight: bold;">{{ follower }}</span> follower</p>
+                            <p class="my-p" style="font-size: 13px; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#followerModal"><span style="font-size: 15px; font-weight: bold;">{{ follower.count }}</span> follower</a></p>
                         </div>
                         <div>
-                            <p class="my-p" style="font-size: 13px;"><span style="font-size: 15px; font-weight: bold;">{{ following }}</span> following</p>
+                            <p class="my-p" style="font-size: 13px; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#followingModal"><span style="font-size: 15px; font-weight: bold;">{{ following.count }}</span> following</a></p>
                         </div>
                     </div>
                     <!-- name section -->
@@ -146,5 +146,66 @@
         {% endif %}
 
     </div>
+</div>
+
+    <!-- follower model -->
+<div class="modal fade" id="followerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Follower</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          {% for i in follower %}
+        <div class="d-flex align-items-center my-d  mb-3">
+            <div class="my-d">
+                <img class="follower-profile-image" src="{% static 'base/images/profile.jpg' %}">
+            </div>
+            <div class="flex-grow-1 mx-2">
+                <p class="my-p follower-user-heading">{{ i.sender.userpersonal.uniquename }}</p>
+                <p class="my-p follower-username-text" >{{ i.sender.get_full_name }}</p>
+            </div>
+            <div class="my-d">
+                <button type="button" class="btn btn-secondary mx-2">Remove</button>
+            </div>
+        </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <!-- following model -->
+<div class="modal fade" id="followingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Followering</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          {% for i in following %}
+        <div class="d-flex align-items-center my-d  mb-3">
+            <div class="my-d">
+                <img class="follower-profile-image" src="{% static 'base/images/profile.jpg' %}">
+            </div>
+            <div class="flex-grow-1 mx-2">
+                <p class="my-p follower-user-heading">{{ i.receiver.userpersonal.uniquename }}</p>
+                <p class="my-p follower-username-text" >{{ i.receiver.get_full_name }}</p>
+            </div>
+            <div class="my-d">
+                <button type="button" class="btn btn-secondary mx-2">Remove</button>
+            </div>
+        </div>
+          {% endfor %}
+      </div>
+
+    </div>
+  </div>
 </div>
 {% endblock %}

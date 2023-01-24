@@ -9,13 +9,12 @@ from django.http import HttpResponseRedirect
 
 @login_required()
 def profile(request, user):
-    user = User.objects.filter(userpersonal__uniquename=user)
-    following = 0
-    follower = 0
-    for i in user:
-        following = FriendsRequest.objects.filter(receiver=i.pk).filter(action=True).count()
-        follower = FriendsRequest.objects.filter(sender=i.pk).filter(action=True).count()
 
+    global follower, following
+    user = User.objects.filter(userpersonal__uniquename=user)
+    for i in user:
+        follower = FriendsRequest.objects.filter(receiver=i.pk).filter(action=True)
+        following = FriendsRequest.objects.filter(sender=i.pk).filter(action=True)
     context = {"value": "profile", "username": user, "following": following, "follower": follower}
     return render(request, "user_profile/profile.html", context)
 
@@ -34,7 +33,6 @@ def user_tagged(request):
 
 @login_required()
 def friendrequest(request, user):
-    print(user)
     user = User.objects.get(userpersonal__uniquename=user)
     user_friend_request = FriendsRequest.objects.filter(receiver=user).filter(action=False).order_by("-created")
     if user == request.user:
