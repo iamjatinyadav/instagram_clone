@@ -9,4 +9,5 @@ urlpatterns = [
     path('tagged/', user_tagged, name="user-tagged"),
     path('<user>/friend-requests/', friendrequest, name="friend-requests"),
     path('requests/<int:pk>/', accept_friend_request, name="accept-requests"),
+    path('account/edit/', account_edit, name="account-edit"),
 ]

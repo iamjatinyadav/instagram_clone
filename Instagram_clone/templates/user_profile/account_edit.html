@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container m-4 bg-white border p-0">
+        <div class="d-flex bd-highlight">
+            <div class=" border-end">
+                <div class="d-flex flex-column align-items-center mb-3 account-edit-buttons">
+                  <div class="p-2 mx-4" style=" width: 100%; text-align: center;">Edit Profile</div>
+                  <div class="p-2 mx-4" style="width: 100%; text-align: center;">Change Password</div>
+                </div>
+            </div>
+            <!-- edit profile section -->
+            <div class="p-2 flex-grow-1 align-items-center" style="background-color: green;">
+                <div class="d-flex justify-content-center">
+                    <div class="d-flex flex-column mb-3">
+                      <div class="p-2 bg-white">Flex item 1</div>
+                      <div class="p-2 ">Flex item 2</div>
+                      <div class="p-2 ">Flex item 3</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
