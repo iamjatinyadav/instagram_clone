@@ -1,0 +1,20 @@
+.account-edit-buttons{
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.account-edit-buttons:hover{
+    background-color: #f1f1f1;
+}
+
+.edit-profile-image {
+    margin: 10px 2px 10px 3px;
+    padding: 2px;
+    vertical-align: middle;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}

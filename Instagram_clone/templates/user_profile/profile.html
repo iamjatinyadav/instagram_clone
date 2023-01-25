@@ -137,12 +137,12 @@
     </div>
     <!-- user posts -->
     <div class="container-fluid" >
-        {% if value == "user_saved" %}
-            {% include "user_profile/usersaved.html" %}
-        {% elif value == "user_tagged"%}
-            {% include "user_profile/usertagged.html" %}
-        {% else %}
+        {% if "profile" %}
             {% include "user_profile/userpost.html" %}
+        {% elif "user_tagged" %}
+            {% include "user_profile/usertagged.html" %}
+        {% elif "user_saved" %}
+            {% include "user_profile/usersaved.html" %}
         {% endif %}
 
     </div>
