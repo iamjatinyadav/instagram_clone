@@ -53,4 +53,10 @@ def accept_friend_request(request, pk):
 
 
 def account_edit(request):
-    return render(request, "user_profile/account_edit.html")
+    return render(request, "user_profile/account.html")
+
+
+def change_password(request):
+    context = {"change_password": "change_password"}
+    return render(request, "user_profile/account.html", context)
+

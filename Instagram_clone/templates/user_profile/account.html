@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block scripts %}
+    <link rel="stylesheet" href="{% static "user_profile/style/account_edit.css" %}">
+{% endblock %}
+{% block content %}
+    <div class="container m-4 bg-white border p-0">
+        <div class="d-flex bd-highlight">
+            <div class=" border-end">
+                <div class="d-flex flex-column align-items-center mb-3">
+                  <div class="p-2 mx-4 account-edit-buttons" >Edit Profile</div>
+                  <div class="p-2 mx-4 account-edit-buttons">Change Password</div>
+                </div>
+            </div>
+            <!-- edit profile section -->
+            {% if "edit" %}
+                {% include "user_profile/edit.html" %}
+            {% else %}
+                {% include "user_profile/change_password.html" %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
