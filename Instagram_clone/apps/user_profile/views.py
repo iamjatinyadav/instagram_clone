@@ -9,8 +9,7 @@ from django.http import HttpResponseRedirect
 
 @login_required()
 def profile(request, user):
-
-    global follower, following
+    global follower , following
     user = User.objects.filter(userpersonal__uniquename=user)
     for i in user:
         follower = FriendsRequest.objects.filter(receiver=i.pk).filter(action=True)
@@ -53,10 +52,13 @@ def accept_friend_request(request, pk):
 
 
 def account_edit(request):
+    value = 1
+    context = {"abc": value}
     return render(request, "user_profile/account.html")
 
 
 def change_password(request):
-    context = {"change_password": "change_password"}
+    value = 0
+    context = {"abc": value}
     return render(request, "user_profile/account.html", context)
 

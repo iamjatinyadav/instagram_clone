@@ -8,15 +8,15 @@
         <div class="d-flex bd-highlight">
             <div class=" border-end">
                 <div class="d-flex flex-column align-items-center mb-3">
-                  <div class="p-2 mx-4 account-edit-buttons" >Edit Profile</div>
-                  <div class="p-2 mx-4 account-edit-buttons">Change Password</div>
+                  <div class="p-2 mx-4 account-edit-buttons" onclick="location.href='{% url 'account-edit' %}';">Edit Profile</div>
+                  <div class="p-2 mx-4 account-edit-buttons" onclick="location.href='{% url 'change_password' %}';">Change Password</div>
                 </div>
             </div>
             <!-- edit profile section -->
-            {% if "edit" %}
-                {% include "user_profile/edit.html" %}
-            {% else %}
+            {% if "abc" == 0 %}
                 {% include "user_profile/change_password.html" %}
+            {% else "abc" == 1 %}
+                {% include "user_profile/edit.html" %}
             {% endif %}
         </div>
     </div>
