@@ -6,12 +6,16 @@ from user.models import *
 from apps.user_profile.models import *
 from .forms import *
 from django.contrib.auth.decorators import *
+from django.db.models import Exists, Q
+
+
 # Create your views here.
 
 
 @login_required()
 def index(request):
-    suggest_user = User.objects.all().exclude(email=request.user.email)
+    request_users = list(FriendsRequest.objects.filter(sender=request.user).values_list("receiver__email", flat=True))
+    suggest_user = User.objects.exclude(email=request.user.email).exclude(email__in=request_users)
     context = {'suggest_users': suggest_user}
     return render(request, "base/index.html", context)
 

@@ -163,7 +163,7 @@
                                 <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>
                             </div>
                             <div class="p-2 my-d">
-                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>
+                                <a href="{% url 'send-requests' i.email %}" style="color: blue;text-decoration: none; font-size: 12px;">Follow</a>
                             </div>
                         </div>
                         {% endfor %}

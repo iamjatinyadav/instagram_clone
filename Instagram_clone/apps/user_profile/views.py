@@ -9,8 +9,9 @@ from django.http import HttpResponseRedirect
 
 @login_required()
 def profile(request, user):
-    global follower , following
+    global follower, following
     user = User.objects.filter(userpersonal__uniquename=user)
+    users_detail = user.values("pk")
     for i in user:
         follower = FriendsRequest.objects.filter(receiver=i.pk).filter(action=True)
         following = FriendsRequest.objects.filter(sender=i.pk).filter(action=True)
@@ -41,14 +42,23 @@ def friendrequest(request, user):
         return render(request, "404.html")
 
 
+@login_required()
+def send_friend_request(request, receiver):
+    sender = request.user
+    print(receiver)
+    receiver = User.objects.get(email=receiver)
+    print(receiver)
+    send_request = FriendsRequest.objects.create(sender=sender, receiver=receiver, action=False)
+    send_request.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required()
 def accept_friend_request(request, pk):
-    print(pk)
     accept_request = FriendsRequest.objects.get(pk=pk)
-    print(accept_request)
     accept_request.action = True
     accept_request.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-    # return redirect(request.META['HTTP_REFERER'])
 
 
 def account_edit(request):
