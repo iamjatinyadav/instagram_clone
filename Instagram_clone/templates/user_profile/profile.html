@@ -9,13 +9,13 @@
     <!-- header section -->
     <div class="container-fluid profile-header">
         <div class="d-flex">
+            {% for i in username %}
             <div class="d-flex align-items-center" style=" display: inline-block;">
-                <img class="profile-pic" src="{% static 'base/images/profile.jpg' %}">
+                <img class="profile-pic" src="{{ i.user_profile_pic.profile_pic.url }}">
             </div>
             <div class="d-flex" style="margin: 0 0 0 50px">
                 <div class="d-flex flex-column">
                     <!--profile username with edit setting and ad tool button -->
-                    {% for i in username %}
                     <div class="d-flex flex-row align-items-center mb-2">
                       <div class=" flex-grow-1">
                           <p class="my-p" style="font-size: 25px; padding-right: 30px;">{{ i.userpersonal.uniquename }}</p>
@@ -52,9 +52,9 @@
                     <div class="d-flex">
                         <p class="my-p" style="font-size: 12px;">♾ Developer 🧑🏻‍💻 <br>♾ Travel🏝 | Photography📷 <br> ABCD-EFGH-IJKL-MNPQ-RSTV-WXZ</p>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
     <!-- memories show and add button container -->

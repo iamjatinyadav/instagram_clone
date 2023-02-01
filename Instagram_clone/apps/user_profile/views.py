@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect
 def profile(request, user):
     global follower, following
     user = User.objects.filter(userpersonal__uniquename=user)
-    users_detail = user.values("pk")
+    # users_detail = user.values("pk")
     for i in user:
         follower = FriendsRequest.objects.filter(receiver=i.pk).filter(action=True)
         following = FriendsRequest.objects.filter(sender=i.pk).filter(action=True)
