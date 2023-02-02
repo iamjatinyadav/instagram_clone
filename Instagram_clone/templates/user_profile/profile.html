@@ -20,8 +20,8 @@
                       <div class=" flex-grow-1">
                           <p class="my-p" style="font-size: 25px; padding-right: 30px;">{{ i.userpersonal.uniquename }}</p>
                       </div>
-                      <div class="p-2">
-                            <button type="button" class="btn btn-secondary">Edit profile</button>
+                      <div class="p-2" onclick="location.href={% url 'account-edit' %}">
+                            <button type="button" class="btn btn-secondary" >Edit profile</button>
                       </div>
                       <div class="p-2">
                           <button type="button" class="btn btn-secondary">Ad Tool</button>
@@ -48,9 +48,12 @@
                     <div class="d-flex">
                         <p class="my-p" style="text-transform: capitalize;">{{ i.get_full_name }}</p>
                     </div>
+                    <div class="d-flex mb-1">
+                        <p class="my-p"style="color: #4a4ae7; font-size: 12px; cursor: pointer;">{{ i.user_profile_infos.website }}</p>
+                    </div>
                     <!-- profile Bio section -->
                     <div class="d-flex">
-                        <p class="my-p" style="font-size: 12px;">♾ Developer 🧑🏻‍💻 <br>♾ Travel🏝 | Photography📷 <br> ABCD-EFGH-IJKL-MNPQ-RSTV-WXZ</p>
+                        <p class="my-p" style="font-size: 12px;">{{ i.user_profile_infos.bio| safe}}</p>
                     </div>
                 </div>
             </div>
@@ -63,42 +66,12 @@
             <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
             <p style="text-align: center; font-size: 15px" >Dehradun</p>
         </div>
+
         <div class="col-1 my-d mx-4 " style="display: inline-block;" >
             <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
             <p style="text-align: center; font-size: 15px" >Alwar</p>
         </div>
-        <div class="col-1 my-d mx-4 " style="display: inline-block;" >
-            <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
-            <p style="text-align: center; font-size: 15px" >Dehradun</p>
-        </div>
-        <div class="col-1 my-d mx-4 " style="display: inline-block;" >
-            <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
-            <p style="text-align: center; font-size: 15px" >Alwar</p>
-        </div>
-        <div class="col-1 my-d mx-4 " style="display: inline-block;" >
-            <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
-            <p style="text-align: center; font-size: 15px" >Dehradun</p>
-        </div>
-        <div class="col-1 my-d mx-4 " style="display: inline-block;" >
-            <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
-            <p style="text-align: center; font-size: 15px" >Alwar</p>
-        </div>
-        <div class="col-1 my-d mx-4 " style="display: inline-block;" >
-            <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
-            <p style="text-align: center; font-size: 15px" >Dehradun</p>
-        </div>
-        <div class="col-1 my-d mx-4 " style="display: inline-block;" >
-            <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
-            <p style="text-align: center; font-size: 15px" >Alwar</p>
-        </div>
-        <div class="col-1 my-d mx-4 " style="display: inline-block;" >
-            <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
-            <p style="text-align: center; font-size: 15px" >Dehradun</p>
-        </div>
-        <div class="col-1 my-d mx-4 " style="display: inline-block;" >
-            <img class="story-memories" src="{% static 'base/images/profile.jpg' %}">
-            <p style="text-align: center; font-size: 15px" >Alwar</p>
-        </div>
+
         <!-- memories add button -->
         <div class="col-1 my-d mx-2 " style="display: inline-block;" >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg story-memories" viewBox="0 0 16 16">
@@ -160,7 +133,7 @@
           {% for i in follower %}
         <div class="d-flex align-items-center my-d  mb-3">
             <div class="my-d">
-                <img class="follower-profile-image" src="{% static 'base/images/profile.jpg' %}">
+                <img class="follower-profile-image" src="{{ i.sender.user_profile_pic.profile_pic.url }}">
             </div>
             <div class="flex-grow-1 mx-2">
                 <p class="my-p follower-user-heading">{{ i.sender.userpersonal.uniquename }}</p>

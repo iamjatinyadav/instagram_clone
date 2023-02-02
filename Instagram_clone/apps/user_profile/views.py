@@ -62,8 +62,6 @@ def accept_friend_request(request, pk):
 
 
 def account_edit(request):
-    value = 1
-    context = {"abc": value}
     return render(request, "user_profile/account.html")
 
 

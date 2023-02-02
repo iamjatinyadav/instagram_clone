@@ -34,7 +34,7 @@
                                 <label for="inputWebsite" class="col-form-label ">Website </label>
                               </div>
                               <div class="col-auto ">
-                                <input type="text" id="inputWebsite" class="form-control" style="width: 400px;">
+                                <input type="text" id="inputWebsite" class="form-control" style="width: 400px;" value="{{ request.user.user_profile_infos.website }}">
                               </div>
                           </div>
                           <div class="d-flex p-2 pb-3">
@@ -42,7 +42,7 @@
                                 <label for="inputWebsite" class="col-form-label ">Bio </label>
                               </div>
                               <div class="col-auto ">
-                                  <textarea type="text" id="inputWebsite" class="form-control" style="width: 400px;"></textarea>
+                                  <textarea type="text" id="inputWebsite" class="form-control" style="width: 400px;" ></textarea>
                               </div>
                           </div>
                           <div class="d-flex p-2 pb-3">

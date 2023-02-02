@@ -130,7 +130,7 @@
                     <div class="container-fluid my-cf">
                         <div class="d-flex align-items-center my-d">
                             <div class="p-2 my-d">
-                                <img class="profile-image" src="{% static 'base/images/profile.jpg' %}">
+                                <img class="profile-image" src="{{ request.user.user_profile_pic.profile_pic.url }}">
                             </div>
                             <div class="p-2 flex-grow-1">
                                 <p class="my-p" style="font-weight: bold;">{{ request.user.userpersonal.uniquename }}</p>
@@ -156,7 +156,7 @@
                         {% for i in suggest_users %}
                         <div class="d-flex align-items-center my-d">
                             <div class="p-2 my-d">
-                                <img class="suggestions-image" src="{% static 'base/images/profile.jpg' %}">
+                                <img class="suggestions-image" src="{{ i.user_profile_pic.profile_pic.url }}">
                             </div>
                             <div class="p-2 flex-grow-1">
                                 <p class="my-p" style="font-weight: bold; font-size: 12px;">{{ i.userpersonal.uniquename }}</p>

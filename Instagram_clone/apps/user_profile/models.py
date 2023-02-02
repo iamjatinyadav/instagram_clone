@@ -55,14 +55,14 @@ class UserProfile(TimeStampedModel):
         OTHER = "OTHER", _('Other')
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_profile_infos")
-    website = models.CharField(max_length=200)
-    gender = models.CharField(choices=Gender.choices, max_length=10, default=Gender.MALE)
-    bio = models.TextField(max_length=200)
+    website = models.CharField(max_length=200, null=True, blank=True)
+    gender = models.CharField(choices=Gender.choices, max_length=10, null=True, blank=True)
+    bio = models.TextField(max_length=200, null=True, blank=True)
     flag = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = "UserProfileInfo"
-        verbose_name_plural = "UserProfileInfo"
+        verbose_name_plural = "UserProfileInfos"
 
     def __str__(self):
         return str(self.user) + "Add detail"

@@ -11,3 +11,7 @@ class FriendRequestAdmin(admin.ModelAdmin):
 class UserProfilePicAdmin(admin.ModelAdmin):
     list_display = ['id', 'user']
 
+
+@admin.register(UserProfile)
+class UserProfileInfoAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'website']
