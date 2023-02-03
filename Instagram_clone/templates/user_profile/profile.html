@@ -20,11 +20,11 @@
                       <div class=" flex-grow-1">
                           <p class="my-p" style="font-size: 25px; padding-right: 30px;">{{ i.userpersonal.uniquename }}</p>
                       </div>
-                      <div class="p-2" onclick="location.href={% url 'account-edit' %}">
-                            <button type="button" class="btn btn-secondary" >Edit profile</button>
+                      <div class="p-2" >
+                            <button type="submit" class="btn btn-secondary" onclick="location.href='{% url 'account-edit' %}'">Edit profile</button>
                       </div>
                       <div class="p-2">
-                          <button type="button" class="btn btn-secondary">Ad Tool</button>
+                          <button type="submit" class="btn btn-secondary" onclick="location.href={% url 'home' %}">Ad Tool</button>
                       </div>
                       <div class="p-2" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gear-wide" viewBox="0 0 16 16">

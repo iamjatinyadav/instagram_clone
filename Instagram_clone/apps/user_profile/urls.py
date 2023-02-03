@@ -12,4 +12,5 @@ urlpatterns = [
     path('send_request/<str:receiver>/', send_friend_request, name="send-requests"),
     path('account/edit/', account_edit, name="account-edit"),
     path('change_password/', change_password, name="change_password"),
+
 ]

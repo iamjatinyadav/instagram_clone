@@ -61,7 +61,9 @@ def accept_friend_request(request, pk):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
+@login_required()
 def account_edit(request):
+    print("hello from account")
     return render(request, "user_profile/account.html")
 
 
