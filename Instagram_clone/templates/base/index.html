@@ -159,7 +159,7 @@
                                 <img class="suggestions-image" src="{{ i.user_profile_pic.profile_pic.url }}">
                             </div>
                             <div class="p-2 flex-grow-1">
-                                <p class="my-p" style="font-weight: bold; font-size: 12px;">{{ i.userpersonal.uniquename }}</p>
+                                <p class="my-p" style="font-weight: bold; font-size: 12px;"><a href="{% url 'profile' i.userpersonal.uniquename %}" style="cursor: pointer; color: black; text-decoration: none;">{{ i.userpersonal.uniquename }}</a></p>
                                 <p class="my-p" style="color: gray; font-size: 12px;">3 mutual friend</p>
                             </div>
                             <div class="p-2 my-d">

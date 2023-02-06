@@ -9,15 +9,10 @@ from django.http import HttpResponseRedirect
 
 @login_required()
 def profile(request, user):
-    # global following, follower
     user = User.objects.filter(userpersonal__uniquename=user)
-    # users_detail = user.values("pk")
-    # follower, following = 0
-    # for i in user:
-    #     follower = FriendsRequest.objects.filter(receiver=i.pk).filter(action=True)
-    #     following = FriendsRequest.objects.filter(sender=i.pk).filter(action=True)
     context = {"value": "profile", "username": user}
     return render(request, "user_profile/profile.html", context)
+
 
 
 @login_required()

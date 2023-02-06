@@ -38,10 +38,10 @@
                             <p class="my-p" style="font-size: 13px;"><span style="font-size: 15px; font-weight: bold;">40</span> posts</p>
                         </div>
                         <div>
-                            <p class="my-p" style="font-size: 13px; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#followerModal"><span style="font-size: 15px; font-weight: bold;">{{ user.get_follower.count }}</span> follower</a></p>
+                            <p class="my-p" style="font-size: 13px; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#followerModal"><span style="font-size: 15px; font-weight: bold;">{{ i.get_follower.count }}</span> follower</a></p>
                         </div>
                         <div>
-                            <p class="my-p" style="font-size: 13px; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#followingModal"><span style="font-size: 15px; font-weight: bold;">{{ user.get_following.count }}</span> following</a></p>
+                            <p class="my-p" style="font-size: 13px; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#followingModal"><span style="font-size: 15px; font-weight: bold;">{{ i.get_following.count }}</span> following</a></p>
                         </div>
                     </div>
                     <!-- name section -->
@@ -131,7 +131,8 @@
       </div>
       <div class="modal-body">
 
-          {% for i in user.get_follower %}
+          {% for j in username %}
+              {% for i in j.get_follower %}
         <div class="d-flex align-items-center my-d  mb-3">
             <div class="my-d">
                 <img class="follower-profile-image" src="{{ i.sender.user_profile_pic.profile_pic.url }}">
@@ -144,6 +145,7 @@
                 <button type="button" class="btn btn-secondary mx-2">Remove</button>
             </div>
         </div>
+          {% endfor %}
           {% endfor %}
 
         </div>
@@ -163,6 +165,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+          {% for user in username %}
           {% for j in user.get_following %}
         <div class="d-flex align-items-center my-d  mb-3">
             <div class="my-d">
@@ -176,6 +179,7 @@
                 <button type="button" class="btn btn-secondary mx-2">Remove</button>
             </div>
         </div>
+          {% endfor %}
           {% endfor %}
       </div>
 
