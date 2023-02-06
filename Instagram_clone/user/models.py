@@ -66,4 +66,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         return self.first_name.strip()
 
+    @property
+    def get_follower(self):
+        follower = self.receiver.filter(action=True)
+        return follower
+
+    @property
+    def get_following(self):
+        following = self.sender.filter(action=True)
+        return following
 

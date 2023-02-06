@@ -9,13 +9,14 @@ from django.http import HttpResponseRedirect
 
 @login_required()
 def profile(request, user):
-    global follower, following
+    # global following, follower
     user = User.objects.filter(userpersonal__uniquename=user)
     # users_detail = user.values("pk")
-    for i in user:
-        follower = FriendsRequest.objects.filter(receiver=i.pk).filter(action=True)
-        following = FriendsRequest.objects.filter(sender=i.pk).filter(action=True)
-    context = {"value": "profile", "username": user, "following": following, "follower": follower}
+    # follower, following = 0
+    # for i in user:
+    #     follower = FriendsRequest.objects.filter(receiver=i.pk).filter(action=True)
+    #     following = FriendsRequest.objects.filter(sender=i.pk).filter(action=True)
+    context = {"value": "profile", "username": user}
     return render(request, "user_profile/profile.html", context)
 
 
@@ -63,10 +64,21 @@ def accept_friend_request(request, pk):
 
 @login_required()
 def account_edit(request):
-    print("hello from account")
     return render(request, "user_profile/account.html")
 
 
+@login_required()
+def change_profile_picture(request):
+
+    if request.method == 'POST':
+        image = request.FILES.get('profile_pic')
+        update_value = {"profile_pic": image}
+        obj, created = UserProfilePic.objects.update_or_create(user=request.user, defaults=update_value)
+        print("data successfully edit or update")
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required()
 def change_password(request):
     value = 0
     context = {"abc": value}
