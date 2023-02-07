@@ -133,7 +133,7 @@
                                 <img class="profile-image" src="{{ request.user.user_profile_pic.profile_pic.url }}">
                             </div>
                             <div class="p-2 flex-grow-1">
-                                <p class="my-p" style="font-weight: bold;">{{ request.user.userpersonal.uniquename }}</p>
+                                <p class="my-p" style="font-weight: bold;"><a href="{% url 'profile' request.user.userpersonal.uniquename %}" style="cursor: pointer; color: black; text-decoration: none;">{{ request.user.userpersonal.uniquename }}</a></p>
                                 <p class="my-p" style="color: gray; font-size: 15px;">{{ request.user.get_full_name }}</p>
                             </div>
                             <div class="p-2 my-d">
