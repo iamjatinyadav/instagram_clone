@@ -7,6 +7,7 @@ from apps.user_profile.models import *
 from .forms import *
 from django.contrib.auth.decorators import *
 from django.db.models import Exists, Q
+from apps.post.models import *
 
 
 # Create your views here.
@@ -16,7 +17,8 @@ from django.db.models import Exists, Q
 def index(request):
     request_users = list(FriendsRequest.objects.filter(sender=request.user).values_list("receiver__email", flat=True))
     suggest_user = User.objects.exclude(email=request.user.email).exclude(email__in=request_users)
-    context = {'suggest_users': suggest_user}
+    posts = Post.objects.all()
+    context = {'suggest_users': suggest_user, 'posts': posts}
     return render(request, "base/index.html", context)
 
 
@@ -27,7 +29,9 @@ def search(request):
 
 @login_required()
 def explore(request):
-    return render(request, "base/explore.html")
+    posts = Post.objects.all()
+    context = {"posts": posts}
+    return render(request, "base/explore.html", context)
 
 
 @login_required()

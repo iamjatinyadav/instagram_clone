@@ -162,10 +162,11 @@ INSTALLED_APPS = (
     
     'constance',
     'constance.backends.database',
+    'django.contrib.humanize',
     'core',
 
 )
-CUSTOM_APPS = ['user', 'apps.base', 'apps.user_profile']
+CUSTOM_APPS = ['user', 'apps.base', 'apps.user_profile', 'apps.post']
 
 INSTALLED_APPS = list(INSTALLED_APPS) + CUSTOM_APPS
 
