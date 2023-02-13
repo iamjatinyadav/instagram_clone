@@ -1,4 +1,6 @@
+{% extends "user_profile/profile.html" %}
 {% load static %}
+{% block data %}
 <div class="d-flex flex-wrap " >
     <div class="d-flex" >
       <img class="post-image" src="{% static 'base/images/profile.jpg' %}">
@@ -13,3 +15,4 @@
       <img class="post-image" src="{% static 'base/images/profile.jpg' %}">
     </div>
 </div>
+{% endblock %}

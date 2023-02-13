@@ -65,3 +65,7 @@
     font-weight: bold;
     margin-left: 15px;
 }
+
+.display-none{
+   display: none;
+}

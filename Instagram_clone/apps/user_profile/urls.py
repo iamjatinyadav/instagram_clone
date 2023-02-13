@@ -4,9 +4,8 @@ from .views import *
 
 urlpatterns = [
     path('<str:user>/', profile, name="profile"),
-    path('saved/', user_saved, name="user-saved"),
-    # path('<user>/saved/', user_saved, name="user-saved"),
-    path('tagged/', user_tagged, name="user-tagged"),
+    path('<str:user>/saved/', user_saved, name="user-saved"),
+    path('<str:user>/tagged/', user_tagged, name="user-tagged"),
     path('<user>/friend-requests/', friendrequest, name="friend-requests"),
     path('requests/<int:pk>/', accept_friend_request, name="accept-requests"),
     path('send_request/<str:receiver>/', send_friend_request, name="send-requests"),

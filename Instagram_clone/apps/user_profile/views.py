@@ -10,21 +10,22 @@ from django.http import HttpResponseRedirect
 @login_required()
 def profile(request, user):
     user = User.objects.filter(userpersonal__uniquename=user)
-    context = {"value": "profile", "username": user}
-    return render(request, "user_profile/profile.html", context)
-
-
-
-@login_required()
-def user_saved(request):
-    context = {"value": "user_saved"}
-    return render(request, "user_profile/profile.html", context)
+    context = {"username": user}
+    return render(request, "user_profile/userpost.html", context)
 
 
 @login_required()
-def user_tagged(request):
-    context = {"value": "user_tagged"}
-    return render(request, "user_profile/profile.html", context)
+def user_saved(request, user):
+    user = User.objects.filter(userpersonal__uniquename=user)
+    context = {"username": user}
+    return render(request, "user_profile/usersaved.html", context)
+
+
+@login_required()
+def user_tagged(request, user):
+    user = User.objects.filter(userpersonal__uniquename=user)
+    context = {"username": user}
+    return render(request, "user_profile/usertagged.html", context)
 
 
 @login_required()
@@ -41,9 +42,7 @@ def friendrequest(request, user):
 @login_required()
 def send_friend_request(request, receiver):
     sender = request.user
-    print(receiver)
     receiver = User.objects.get(email=receiver)
-    print(receiver)
     send_request = FriendsRequest.objects.create(sender=sender, receiver=receiver, action=False)
     send_request.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
