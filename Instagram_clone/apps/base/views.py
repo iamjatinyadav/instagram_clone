@@ -17,7 +17,9 @@ from apps.post.models import *
 def index(request):
     request_users = list(FriendsRequest.objects.filter(sender=request.user).values_list("receiver__email", flat=True))
     suggest_user = User.objects.exclude(email=request.user.email).exclude(email__in=request_users)
-    posts = Post.objects.all()
+    post_show_users = list(FriendsRequest.objects.filter(action=True).filter(sender=request.user).
+                           values_list("receiver__email", flat=True))
+    posts = Post.objects.filter(Q(user__email__in=post_show_users) | Q(user__email=request.user))
     context = {'suggest_users': suggest_user, 'posts': posts}
     return render(request, "base/index.html", context)
 

@@ -4,11 +4,10 @@
 <div class="d-flex flex-wrap " >
     {% for user in username %}
         {% for i in user.user_post.all %}
-    <div class="d-flex" >
-      <img class="post-image" src="{{ i.image.url }}">
-    </div>
+            <div class="d-flex" >
+              <img class="post-image" src="{{ i.image.url }}">
+            </div>
         {% endfor %}
     {% endfor %}
-
 </div>
 {% endblock %}

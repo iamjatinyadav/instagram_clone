@@ -17,6 +17,7 @@ class Post(TimeStampedModel):
     image_bio = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
+        ordering = ["-id"]
         verbose_name = "UserPost"
         verbose_name_plural = "UserPosts"
 

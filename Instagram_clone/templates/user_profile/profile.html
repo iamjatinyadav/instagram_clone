@@ -109,16 +109,7 @@
         </div>
     </div>
     {% block data %}
-    <!-- user posts -->
-{#    <div class="container-fluid div-item" itemNo="1">#}
-{#            {% include "user_profile/userpost.html" %}#}
-{#    </div>#}
-{#    <div class="container-fluid div-item display-none" itemNo="2">#}
-{#            {% include "user_profile/usersaved.html" %}#}
-{#    </div>#}
-{#    <div class="container-fluid div-item display-none" itemNo="3" >#}
-{#            {% include "user_profile/usertagged.html" %}#}
-{#    </div>#}
+
     {% endblock data %}
 </div>
 
@@ -139,7 +130,7 @@
                 <img class="follower-profile-image" src="{{ i.sender.user_profile_pic.profile_pic.url }}">
             </div>
             <div class="flex-grow-1 mx-2">
-                <p class="my-p follower-user-heading">{{ i.sender.userpersonal.uniquename }}</p>
+                <p class="my-p follower-user-heading"><a href="{% url 'profile' i.sender.userpersonal.uniquename %}" style="cursor: pointer; color: black; text-decoration: none;">{{ i.sender.userpersonal.uniquename }}</a></p>
                 <p class="my-p follower-username-text" >{{ i.sender.get_full_name }}</p>
             </div>
             <div class="my-d">
@@ -172,7 +163,7 @@
                 <img class="follower-profile-image" src="{{ j.receiver.user_profile_pic.profile_pic.url }}">
             </div>
             <div class="flex-grow-1 mx-2">
-                <p class="my-p follower-user-heading">{{ j.receiver.userpersonal.uniquename }}</p>
+                <p class="my-p follower-user-heading"><a href="{% url 'profile' j.receiver.userpersonal.uniquename %}" style="cursor: pointer; color: black; text-decoration: none;">{{ j.receiver.userpersonal.uniquename }}</a></p>
                 <p class="my-p follower-username-text" >{{ j.receiver.get_full_name }}</p>
             </div>
             <div class="my-d">
