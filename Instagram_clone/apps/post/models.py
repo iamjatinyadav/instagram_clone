@@ -23,3 +23,17 @@ class Post(TimeStampedModel):
 
     def __str__(self):
         return str(self.user) + " add a picture " + str(self.pk)
+
+
+class UserSaved(TimeStampedModel):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_saved")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="posts")
+
+    class Meta:
+        ordering = ["-id"]
+        verbose_name = "UserSaved"
+        verbose_name_plural = "UserSaved"
+
+    def __str__(self):
+        return str(self.pk)
+

@@ -76,3 +76,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         following = self.sender.filter(action=True)
         return following
 
+    @property
+    def get_post_count(self):
+        post_count = self.user_post.all().count()
+        return post_count

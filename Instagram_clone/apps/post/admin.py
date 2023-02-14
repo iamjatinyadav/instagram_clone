@@ -6,3 +6,8 @@ from .models import *
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ['id', 'user']
+
+
+@admin.register(UserSaved)
+class UserSavedAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'post']

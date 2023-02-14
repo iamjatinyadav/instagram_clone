@@ -68,13 +68,10 @@ def change_profile_picture(request):
         image = request.FILES.get('profile_pic')
         update_value = {"profile_pic": image}
         obj, created = UserProfilePic.objects.update_or_create(user=request.user, defaults=update_value)
-        print("data successfully edit or update")
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 @login_required()
 def change_password(request):
-    value = 0
-    context = {"abc": value}
-    return render(request, "user_profile/account.html", context)
+    return render(request, "user_profile/account.html")
 

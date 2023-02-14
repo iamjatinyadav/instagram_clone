@@ -35,7 +35,7 @@
                     <!--post follower following sections -->
                     <div class="d-flex align-items-center justify-content-between mb-3" style="padding-right: 90px;">
                         <div>
-                            <p class="my-p" style="font-size: 13px;"><span style="font-size: 15px; font-weight: bold;">40</span> posts</p>
+                            <p class="my-p" style="font-size: 13px;"><span style="font-size: 15px; font-weight: bold;">{{ i.get_post_count }}</span> posts</p>
                         </div>
                         <div>
                             <p class="my-p" style="font-size: 13px; cursor: pointer;"><a data-bs-toggle="modal" data-bs-target="#followerModal"><span style="font-size: 15px; font-weight: bold;">{{ i.get_follower.count }}</span> follower</a></p>
@@ -45,6 +45,7 @@
                         </div>
                     </div>
                     <!-- name section -->
+
                     <div class="d-flex">
                         <p class="my-p" style="text-transform: capitalize;">{{ i.get_full_name }}</p>
                     </div>
@@ -85,6 +86,7 @@
         <hr>
     </div>
     <!-- button post saved and tagged -->
+    {% for user in username %}
     <div class="container-fluid my-cf mb-2" >
         <div class="d-flex justify-content-center mx-4">
             <div class="d-flex flex-row align-items-center mx-3 " onclick="location.href='{% url "profile" user.userpersonal.uniquename %}'" style="cursor: pointer;">
@@ -93,12 +95,14 @@
                     </svg>
                     <p class="my-p">Posts</p>
             </div>
+            {% if user.email == request.user.email %}
             <div class="d-flex flex-row align-items-center mx-3 " onclick="location.href='{% url "user-saved" user.userpersonal.uniquename %}'" style="cursor: pointer;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bookmark m-2" viewBox="0 0 16 16">
                       <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
                     </svg>
                     <p class="my-p">Saved</p>
             </div>
+            {% endif %}
             <div class="d-flex flex-row align-items-center mx-3" onclick="location.href='{% url "user-tagged" user.userpersonal.uniquename %}'" style="cursor: pointer;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-square m-2" viewBox="0 0 16 16">
                       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -108,6 +112,9 @@
             </div>
         </div>
     </div>
+
+    {% endfor %}
+
     {% block data %}
 
     {% endblock data %}
