@@ -1,6 +1,9 @@
 {% extends "user_profile/profile.html" %}
 {% load static %}
 {% block data %}
+{#{% block scripts %}#}
+{#    <link rel="stylesheet" href="{% static "user_profile/style/usersaved.css" %}">#}
+{#{% endblock %}#}
 <div class="d-flex flex-wrap " >
     <div class="container-fluid my-cf">
         <div class="d-flex justify-content-between my-d">
@@ -12,13 +15,29 @@
             </div>
         </div>
     </div>
-    <div class="d-flex saved-div" >
+    {% for user in username %}
+    <div class="d-flex saved-div" onclick="location.href='{% url "user-saved-all" user.userpersonal.uniquename %}'" style="cursor: pointer;">
       <img class="post-image" src="{% static 'base/images/profile.jpg' %}">
+      <img class="post-image" src="{% static 'base/images/profile.jpg' %}">
+{#      <br>#}
+{#      <img class="post-image" src="{% static 'base/images/profile.jpg' %}">#}
+{#      <img class="post-image" src="{% static 'base/images/profile.jpg' %}">#}
       <p class="saved-title"> All Posts</p>
     </div>
-    <div class="d-flex saved-div" >
-      <img class="post-image" src="{% static 'base/images/profile.jpg' %}">
+    {% endfor %}
+    <div class="d-flex saved-div" style="cursor: pointer;">
+      <img class="other-post-image" src="{% static 'base/images/profile.jpg' %}">
       <p class="saved-title"> All Posts</p>
     </div>
+    <div class="d-flex saved-div" style="cursor: pointer;">
+      <img class="other-post-image" src="{% static 'base/images/profile.jpg' %}">
+      <p class="saved-title"> All Posts</p>
+    </div>
+    <div class="d-flex saved-div" style="cursor: pointer;">
+      <img class="other-post-image" src="{% static 'base/images/profile.jpg' %}">
+      <p class="saved-title"> All Posts</p>
+    </div>
+
+
 </div>
 {% endblock data %}

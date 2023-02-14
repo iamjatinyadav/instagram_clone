@@ -10,5 +10,13 @@
 }
 
 .saved-div {
+    /*position: absolute;*/
     position: relative;
+    width: 320px;
+    height: 320px;
+}
+
+.saved-div:hover {
+    -webkit-filter: brightness(60%);
+
 }

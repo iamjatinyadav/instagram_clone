@@ -1,26 +1,16 @@
 {% extends "base/base.html" %}
 {% load static %}
 {% block scripts %}
-    <link rel="stylesheet" href="{% static 'base/style/explore.css' %}">
+    <link rel="stylesheet" href="{% static 'user_profile/style/userpostsaved.css' %}">
 {% endblock %}
 {% block content %}
 <div class="container mt-3 p-2" >
     <div class="d-flex flex-wrap " >
-        {% for post in posts %}
+        {% for user_post in all_saved_post %}
         <div class="d-flex" >
-          <img class="explore-image" src="{{ post.image.url }}">
+          <img class="user_post_saved_image" src="{{ user_post.post.image.url }}">
         </div>
         {% endfor %}
-        <div class="d-flex" >
-          <img class="explore-image" src="{% static 'base/images/profile.jpg' %}">
-        </div>
-        <div class="d-flex" >
-          <img class="explore-image" src="{% static 'base/images/profile.jpg' %}">
-        </div>
-        <div class="d-flex" >
-          <img class="explore-image" src="{% static 'base/images/profile.jpg' %}">
-        </div>
-
     </div>
 </div>
 {% endblock %}

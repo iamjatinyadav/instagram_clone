@@ -5,6 +5,7 @@ from .views import *
 urlpatterns = [
     path('<str:user>/', profile, name="profile"),
     path('<str:user>/saved/', user_saved, name="user-saved"),
+    path('<str:user>/saved/allsaved/', user_saved_all, name="user-saved-all"),
     path('<str:user>/tagged/', user_tagged, name="user-tagged"),
     path('<user>/friend-requests/', friendrequest, name="friend-requests"),
     path('requests/<int:pk>/', accept_friend_request, name="accept-requests"),

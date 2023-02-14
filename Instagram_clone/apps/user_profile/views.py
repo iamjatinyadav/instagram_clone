@@ -3,7 +3,7 @@ from user.models import *
 from django.contrib.auth.decorators import *
 from .models import *
 from django.http import HttpResponseRedirect
-
+from apps.post.models import *
 # Create your views here.
 
 
@@ -19,6 +19,14 @@ def user_saved(request, user):
     user = User.objects.filter(userpersonal__uniquename=user)
     context = {"username": user}
     return render(request, "user_profile/usersaved.html", context)
+
+
+@login_required()
+def user_saved_all(request, user):
+    user = User.objects.get(userpersonal__uniquename=user)
+    all_saved_post = UserSaved.objects.filter(user=user)
+    context = {"all_saved_post": all_saved_post}
+    return render(request, "user_profile/userpostsaved.html", context)
 
 
 @login_required()
