@@ -31,6 +31,7 @@ class UserSaved(TimeStampedModel):
 
     class Meta:
         ordering = ["-id"]
+        unique_together = (("user", "post"),)
         verbose_name = "UserSaved"
         verbose_name_plural = "UserSaved"
 

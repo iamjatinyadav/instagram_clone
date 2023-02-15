@@ -1,4 +1,5 @@
 .saved-title {
+    z-index: 100;
     color: white;
     position: absolute;
     left: 10px;
@@ -10,13 +11,21 @@
 }
 
 .saved-div {
-    /*position: absolute;*/
     position: relative;
     width: 320px;
     height: 320px;
 }
 
-.saved-div:hover {
-    -webkit-filter: brightness(60%);
+.inner-saved-div {
+   -webkit-filter: brightness(70%);
 
 }
+
+.inner-saved-div:hover{
+    -webkit-filter: brightness(50%);
+}
+
+/*.saved-div:hover {*/
+/*    -webkit-filter: brightness(50%);*/
+
+/*}*/

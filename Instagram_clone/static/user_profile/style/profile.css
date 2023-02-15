@@ -32,18 +32,18 @@
             white-space: nowrap;
 }
 
-.post-image {
-    margin: 10px 10px 10px 10px;
-    padding: 2px;
+.other-post-image {
+    margin: 12px 0px 0px 10px;
+    /*padding: 2px;*/
     vertical-align: middle;
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     /*border-radius: 50%;*/
     object-fit: cover;
     object-position: center;
 }
 
-.other-post-image {
+.post-image {
     margin: 10px 10px 10px 10px;
     padding: 2px;
     vertical-align: middle;
@@ -54,9 +54,9 @@
     object-position: center;
 }
 
-.post-image:hover {
-    -webkit-filter: brightness(30%);
-}
+/*.post-image:hover {*/
+/*    -webkit-filter: brightness(30%);*/
+/*}*/
 
 
 .follower-profile-image {

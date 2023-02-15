@@ -80,3 +80,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_post_count(self):
         post_count = self.user_post.all().count()
         return post_count
+
+    @property
+    def get_latest_saved_post(self):
+        saved_post = self.user_saved.all()[:4]
+        return saved_post

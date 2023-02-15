@@ -16,9 +16,13 @@ def profile(request, user):
 
 @login_required()
 def user_saved(request, user):
-    user = User.objects.filter(userpersonal__uniquename=user)
-    context = {"username": user}
-    return render(request, "user_profile/usersaved.html", context)
+    if user == request.user.userpersonal.uniquename:
+        user = User.objects.filter(userpersonal__uniquename=user)
+        context = {"username": user}
+        return render(request, "user_profile/usersaved.html", context)
+    else:
+        return render(request, "404.html")
+
 
 
 @login_required()
