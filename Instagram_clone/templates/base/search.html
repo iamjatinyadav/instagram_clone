@@ -11,78 +11,90 @@
         <hr>
         <!-- serach form -->
         <div class="container">
-            <input class="search" type="text" placeholder="Search">
-            <button class="search-button">Search</button>
+            <form method="get" action="{% url 'show-result' %}">
+                <input class="search" name="search" type="text" placeholder="Search">
+                <button type="submit" class="search-button">Search</button>
+            </form>
         </div>
         <hr>
         <!-- show search result -->
         <div class="container">
 
             <!-- recent search -->
+{#            <div class="container">#}
+{#                <!-- recent and clear all button -->#}
+{#                <div class="d-flex justify-content-between my-d">#}
+{#                    <div class="d-flex">#}
+{#                        <p class="my-p" style="font-size: 18px;">Recent</p>#}
+{#                    </div>#}
+{#                    <div class="d-flex">#}
+{#                        <a href="#" style="color: blue;text-decoration: none;">Clear All</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="d-flex align-items-center my-d mb-3">#}
+{#                    <div class="my-d">#}
+{#                        <img class="search-post-image" src="{% static 'base/images/profile.jpg' %}">#}
+{#                    </div>#}
+{#                    <div class="flex-grow-1 mx-2">#}
+{#                        <p class="my-p" style="font-weight: bold;">iamjatin_yadav</p>#}
+{#                        <p class="my-p" style="color: gray; font-size: 15px;">Jatin Yadav</p>#}
+{#                    </div>#}
+{#                    <div class="my-d">#}
+{#                        <a href="#" style="color: blue;text-decoration: none; font-size: 12px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">#}
+{#                          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>#}
+{#                        </svg></a>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+             <!-- search result -->
             <div class="container">
-                <!-- recent and clear all button -->
-                <div class="d-flex justify-content-between my-d">
-                    <div class="d-flex">
-                        <p class="my-p" style="font-size: 18px;">Recent</p>
+                {% if all_users != none %}
+                    {% for i in all_users %}
+                    <div class="d-flex align-items-center my-d mb-3">
+                          <div class="my-d">
+                              <img class="search-post-image" src="{{ i.user_profile_pic.profile_pic.url }}">
+                          </div>
+                          <div class="flex-grow-1 mx-2">
+                              <p class="my-p" style="font-weight: bold;">{{ i.userpersonal.uniquename }}</p>
+                              <p class="my-p" style="color: gray; font-size: 15px;">{{ i.get_full_name }}</p>
+                          </div>
                     </div>
-                    <div class="d-flex">
-                        <a href="#" style="color: blue;text-decoration: none;">Clear All</a>
+                    {% empty %}
+                        <div class="d-flex align-items-center my-d mb-3">
+                          <div class="flex-grow-1 mx-2">
+                              <p class="my-p" style="color: gray; font-size: 15px;">No Result Found</p>
+                          </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- recent search -->
+                        <!-- recent and clear all button -->
+                        <div class="d-flex justify-content-between my-d">
+                            <div class="d-flex">
+                                <p class="my-p" style="font-size: 18px;">Recent</p>
+                            </div>
+                            <div class="d-flex">
+                                <a href="#" style="color: blue;text-decoration: none;">Clear All</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center my-d mb-3">
+                            <div class="my-d">
+                                <img class="search-post-image" src="{% static 'base/images/profile.jpg' %}">
+                            </div>
+                            <div class="flex-grow-1 mx-2">
+                                <p class="my-p" style="font-weight: bold;">iamjatin_yadav</p>
+                                <p class="my-p" style="color: gray; font-size: 15px;">Jatin Yadav</p>
+                            </div>
+                            <div class="my-d">
+                                <a href="#" style="color: blue;text-decoration: none; font-size: 12px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                </svg></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex align-items-center my-d mb-3">
-                    <div class="my-d">
-                        <img class="search-post-image" src="{% static 'base/images/profile.jpg' %}">
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="my-p" style="font-weight: bold;">iamjatin_yadav</p>
-                        <p class="my-p" style="color: gray; font-size: 15px;">Jatin Yadav</p>
-                    </div>
-                    <div class="my-d">
-                        <a href="#" style="color: blue;text-decoration: none; font-size: 12px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                        </svg></a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center my-d mb-3">
-                    <div class="my-d">
-                        <img class="search-post-image" src="{% static 'base/images/profile.jpg' %}">
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="my-p" style="font-weight: bold;">iamjatin_yadav</p>
-                        <p class="my-p" style="color: gray; font-size: 15px;">Jatin Yadav</p>
-                    </div>
-                    <div class="my-d">
-                        <a href="#" style="color: blue;text-decoration: none; font-size: 12px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                        </svg></a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center my-d mb-3">
-                    <div class="my-d">
-                        <img class="search-post-image" src="{% static 'base/images/profile.jpg' %}">
-                    </div>
-                    <div class="flex-grow-1 mx-2">
-                        <p class="my-p" style="font-weight: bold;">iamjatin_yadav</p>
-                        <p class="my-p" style="color: gray; font-size: 15px;">Jatin Yadav</p>
-                    </div>
-                    <div class="my-d">
-                        <a href="#" style="color: blue;text-decoration: none; font-size: 12px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                        </svg></a>
-                    </div>
-                </div>
+                {% endif %}
 
             </div>
-             <!-- search result -->
-{#            <div class="d-flex p-2 align-items-center mb-3">#}
-{#                  <div class="d-flex">#}
-{#                      <img class="search-post-image" src="{% static 'base/images/profile.jpg' %}">#}
-{#                  </div>#}
-{#                  <div class="flex-grow-1 mx-3">#}
-{#                      <p class="my-p" style="font-weight: bold;">iamjatin_yadav</p>#}
-{#                      <p class="my-p" style="color: gray; font-size: 15px;">Jatin Yadav</p>#}
-{#                  </div>#}
-{#            </div>#}
         </div>
     </div>
 {% endblock %}

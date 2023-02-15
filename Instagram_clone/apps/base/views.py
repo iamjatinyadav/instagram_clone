@@ -30,6 +30,20 @@ def search(request):
 
 
 @login_required()
+def show_search_result(request):
+    if request.method == "GET":
+        query = request.GET["search"]
+        if len(query) <= 1:
+            all_users = User.objects.none()
+        else:
+            all_users = User.objects.filter(Q(userpersonal__uniquename__icontains=query) |
+                                            Q(first_name__icontains=query))
+        context = {"all_users": all_users}
+        return render(request, "base/search.html", context)
+
+
+
+@login_required()
 def explore(request):
     posts = Post.objects.all()
     context = {"posts": posts}
