@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import FormView
@@ -8,7 +9,6 @@ from .forms import *
 from django.contrib.auth.decorators import *
 from django.db.models import Exists, Q
 from apps.post.models import *
-
 
 # Create your views here.
 
@@ -26,13 +26,44 @@ def index(request):
 
 @login_required()
 def search(request):
-    return render(request, "base/search.html")
+    try:
+        recent_search = request.session['recent_search']
+    except Exception:
+        recent_search = []
+    context = {"recent_search": recent_search}
+    return render(request, "base/search.html", context)
+
+
+@login_required()
+def delete_one_recent(request, value):
+    request.session['recent_search'].remove(value)
+    request.session.modified = True
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required()
+def delete_all_recent(request):
+    request.session['recent_search'].clear()
+    request.session.modified = True
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 @login_required()
 def show_search_result(request):
     if request.method == "GET":
         query = request.GET["search"]
+        if 'recent_search' in request.session:
+            if query in request.session['recent_search']:
+                request.session['recent_search'].remove(query)
+
+            request.session['recent_search'].insert(0, query)
+            if len(request.session['recent_search']) > 5:
+                request.session['recent_search'].pop()
+
+        else:
+            request.session['recent_search'] = [query]
+
+        request.session.modified = True
         if len(query) <= 1:
             all_users = User.objects.none()
         else:
