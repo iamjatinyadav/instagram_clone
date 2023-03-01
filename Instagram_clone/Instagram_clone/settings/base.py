@@ -166,7 +166,7 @@ INSTALLED_APPS = (
     'core',
 
 )
-CUSTOM_APPS = ['user', 'apps.base', 'apps.user_profile', 'apps.post']
+CUSTOM_APPS = ['user', 'apps.base', 'apps.user_profile', 'apps.post', 'apps.message']
 
 INSTALLED_APPS = list(INSTALLED_APPS) + CUSTOM_APPS
 

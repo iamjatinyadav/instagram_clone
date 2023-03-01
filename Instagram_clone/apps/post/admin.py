@@ -11,3 +11,8 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(UserSaved)
 class UserSavedAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'post']
+
+
+@admin.register(Like)
+class UserLikeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'post', 'user']

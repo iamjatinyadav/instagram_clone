@@ -13,7 +13,7 @@ urlpatterns = i18n_patterns(
 	path('admin/', admin.site.urls),
 	path('', include('apps.base.urls')),
 	path('', include('apps.user_profile.urls')),
-	# path('<user>/', include('apps.user_profile.urls')),
+	path('', include('apps.message.urls')),
     prefix_default_language = False
 )
 

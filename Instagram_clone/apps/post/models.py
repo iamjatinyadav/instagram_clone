@@ -15,6 +15,7 @@ class Post(TimeStampedModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_post")
     image = models.ImageField(upload_to=user_post_directory_path)
     image_bio = models.CharField(max_length=200, null=True, blank=True)
+    # likes = models.IntegerField(default=0)
 
     class Meta:
         ordering = ["-id"]
@@ -37,4 +38,15 @@ class UserSaved(TimeStampedModel):
 
     def __str__(self):
         return str(self.pk)
+
+
+class Like(TimeStampedModel):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post_like")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_like")
+
+    class Meta:
+        ordering = ["-id"]
+        unique_together = (("post", "user"))
+        verbose_name = "UserLiked"
+        verbose_name_plural = "UserLiked"
 
