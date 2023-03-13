@@ -7,3 +7,13 @@
             object-fit: cover;
             object-position: center;
 }
+
+.chat_chennal_buddy_profile-pic {
+            margin: 8px;
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+}
