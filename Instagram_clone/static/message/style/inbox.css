@@ -44,6 +44,21 @@
         box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.15);
     }
 
+
+.chat-box {
+     overflow-y: auto;
+
+}
+
+.chat-buddy-box {
+     overflow-y: auto;
+
+}
+
+.form-control {
+    border: 0;
+}
+
 #chat2 .form-control {
 border-color: transparent;
 }
