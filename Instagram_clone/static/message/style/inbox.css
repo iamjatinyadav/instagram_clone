@@ -17,3 +17,46 @@
             object-fit: cover;
             object-position: center;
 }
+
+.message-box {
+        width: 75%;
+        height: 50px;
+        border-radius: 35px;
+        padding-left: 10px;
+        font-size: 15px;
+        margin: 10px 0 0 25px;
+        border: none;
+        box-shadow: 0px 0px 8px rgba(0,0,0,0.25);
+    }
+
+.message-button {
+        background-color: rgb(234, 88, 0);
+        color: white;
+        font-weight: bold;
+        padding: 12px 20px 12px 20px;
+        border: none;
+        border-radius: 25px;
+        margin-left: 8px;
+        cursor: pointer;
+    }
+
+.search-button:hover{
+        box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.15);
+    }
+
+#chat2 .form-control {
+border-color: transparent;
+}
+
+#chat2 .form-control:focus {
+border-color: transparent;
+box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
