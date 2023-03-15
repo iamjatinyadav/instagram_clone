@@ -5,4 +5,7 @@ from django.contrib.auth.decorators import *
 
 # @login_required()
 def inbox(request):
-    return render(request, "message/inbox.html")
+    return render(request, "message/direct.html")
+
+def chat(request):
+    return render(request, "message/personal_chat.html")
