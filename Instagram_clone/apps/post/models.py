@@ -25,6 +25,10 @@ class Post(TimeStampedModel):
     def __str__(self):
         return str(self.user) + " add a picture " + str(self.pk)
 
+    @property
+    def likes(self):
+        return self.post_like.all()
+
 
 class UserSaved(TimeStampedModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_saved")
